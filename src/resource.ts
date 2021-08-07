@@ -129,8 +129,12 @@ class Resource extends BaseResource {
         }, {
           $set: unflattedParams,
         }, {
-          new: true,
-          runValidators: true,
+          new: true
+          // Removed for now to avoid errors when updating resources
+          // this is a quick fix but we should come up with a more
+          // elegant solution
+          //
+          // runValidators: true,
         })
         return Resource.stringifyId(mongooseObject.toObject())
       } catch (error) {
